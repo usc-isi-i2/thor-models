@@ -1,0 +1,1239 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix memex: <http://schema.dig.isi.edu/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1agtalktcx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "obj_reformatted.json" ;
+	km-dev:modelPublicationTime "1461273154476"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"status\"},{\"columnName\":\"userMentionEntities\"},{\"columnName\":\"name\"}],[{\"columnName\":\"knowledgeGraph\"},{\"columnName\":\"entity\"},{\"columnName\":\"entity_type\"}],[{\"columnName\":\"status\"},{\"columnName\":\"text\"}],[{\"columnName\":\"status\"},{\"columnName\":\"retweetedStatus\"},{\"columnName\":\"user\"},{\"columnName\":\"name\"}],[{\"columnName\":\"knowledgeGraph\"},{\"columnName\":\"entity\"},{\"columnName\":\"entity_mention\"},{\"columnName\":\"mention_head\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"knowledgeGraph\"},{\"columnName\":\"entity\"},{\"columnName\":\"entity_uri\"}],[{\"columnName\":\"status\"},{\"columnName\":\"userMentionEntities\"},{\"columnName\":\"name\"}],[{\"columnName\":\"status\"},{\"columnName\":\"text\"}],[{\"columnName\":\"status\"},{\"columnName\":\"retweetedStatus\"},{\"columnName\":\"user\"},{\"columnName\":\"name\"}],[{\"columnName\":\"knowledgeGraph\"},{\"columnName\":\"entity\"},{\"columnName\":\"entity_mention\"},{\"columnName\":\"mention_head\"}]]" ;
+	km-dev:hasModelLabel "obj_reformatted.json" ;
+	km-dev:hasBaseURI "http://localhost:8080/source/" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"knowledgeGraph\"},
+                    {\"columnName\": \"entity\"},
+                    {\"columnName\": \"entity_type\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"entity_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return entity_class(getValue(\\\"entity_type\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_type\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"status\"},
+                    {\"columnName\": \"text\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Tweet\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/text\",
+                    \"DomainLabel\": \"memex:Tweet1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"text\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"text\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"status\"},
+                    {\"columnName\": \"userMentionEntities\"},
+                    {\"columnName\": \"name\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/UserName\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/UserName1\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/name\",
+                    \"DomainLabel\": \"memex:UserName1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"userMentionEntities\\\"},{\\\"columnName\\\":\\\"name\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"userMentionEntities\\\"},{\\\"columnName\\\":\\\"name\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"status\"},
+                    {\"columnName\": \"retweetedStatus\"},
+                    {\"columnName\": \"user\"},
+                    {\"columnName\": \"name\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/Person\",
+                    \"DomainId\": \"http://schema.org/Person1\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/name\",
+                    \"DomainLabel\": \"schema:Person1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"retweetedStatus\\\"},{\\\"columnName\\\":\\\"user\\\"},{\\\"columnName\\\":\\\"name\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"status\\\"},{\\\"columnName\\\":\\\"retweetedStatus\\\"},{\\\"columnName\\\":\\\"user\\\"},{\\\"columnName\\\":\\\"name\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"knowledgeGraph\"},
+                    {\"columnName\": \"entity\"},
+                    {\"columnName\": \"entity_uri\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isSubclassOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Thing\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Thing1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLiteralNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"type\": \"other\",
+                \"value\": \"twitter.com\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"knowledgeGraph\"},
+                    {\"columnName\": \"entity\"},
+                    {\"columnName\": \"entity_uri\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isSubclassOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Thing\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Thing1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"knowledgeGraph\"},
+                    {\"columnName\": \"entity\"},
+                    {\"columnName\": \"entity_mention\"},
+                    {\"columnName\": \"mention_head\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/Thing\",
+                    \"DomainId\": \"http://schema.org/Thing1\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/name\",
+                    \"DomainLabel\": \"schema:Thing1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_mention\\\"},{\\\"columnName\\\":\\\"mention_head\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"knowledgeGraph\\\"},{\\\"columnName\\\":\\\"entity\\\"},{\\\"columnName\\\":\\\"entity_mention\\\"},{\\\"columnName\\\":\\\"mention_head\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP9:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                    \"edgeId\": \"http://schema.org/mentions\",
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Situation\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Tweet\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP9:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                    \"edgeId\": \"http://schema.org/recordedIn\",
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Tweet\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP9:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/Person1\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/owner\",
+                    \"edgeTargetUri\": \"http://schema.org/Person\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP9:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/UserName1\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/identifier\",
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/UserName\",
+                    \"edgeSourceId\": \"http://schema.org/Person1\",
+                    \"edgeSourceUri\": \"http://schema.org/Person\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP9:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/SoftwareSystem1\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/softwareSystem\",
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/SoftwareSystem\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/UserName1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/UserName\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"twitter.com1\",
+                    \"edgeId\": \"http://schema.org/name\",
+                    \"edgeTargetUri\": \"twitter.com\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/SoftwareSystem1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/SoftwareSystem\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP12:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/Thing1\",
+                    \"edgeId\": \"http://schema.org/mentions\",
+                    \"edgeTargetUri\": \"http://schema.org/Thing\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [
+                    {
+                        \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                        \"edgeId\": \"http://schema.org/mentions\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Tweet1\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.org/Person1\",
+                        \"edgeId\": \"http://schema.dig.isi.edu/ontology/owner\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.org/Thing1\",
+                        \"edgeId\": \"http://schema.org/mentions\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                        \"edgeId\": \"http://schema.org/recordedIn\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\"
+                    }
+                ]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP13:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [
+                    {
+                        \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                        \"edgeId\": \"http://schema.org/mentions\",
+                        \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Situation\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                        \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Tweet\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.org/Person1\",
+                        \"edgeId\": \"http://schema.dig.isi.edu/ontology/reporter\",
+                        \"edgeTargetUri\": \"http://schema.org/Person\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                        \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.org/Thing1\",
+                        \"edgeId\": \"http://schema.org/mentions\",
+                        \"edgeTargetUri\": \"http://schema.org/Thing\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                        \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                    },
+                    {
+                        \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Tweet1\",
+                        \"edgeId\": \"http://schema.org/recordedIn\",
+                        \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Tweet\",
+                        \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Situation1\",
+                        \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Situation\"
+                    }
+                ]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    }
+]""" .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx2 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx2 .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e rr:logicalTable _:node1agtalktcx2 ;
+	rr:subjectMap _:node1agtalktcx3 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx3 .
+
+_:node1agtalktcx3 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Situation1" ;
+	rr:class memex:Situation ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "memex:Situation1" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_5a927cb6-8355-4922-a44b-e4b159281626 rr:predicate memex:reporter .
+
+km-dev:RefObjectMap_15e2f350-3777-4475-ada7-d0461532ba1f a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_15e2f350-3777-4475-ada7-d0461532ba1f .
+
+km-dev:PredicateObjectMap_5a927cb6-8355-4922-a44b-e4b159281626 rr:objectMap km-dev:RefObjectMap_15e2f350-3777-4475-ada7-d0461532ba1f .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e rr:predicateObjectMap km-dev:PredicateObjectMap_5a927cb6-8355-4922-a44b-e4b159281626 .
+
+km-dev:PredicateObjectMap_5a927cb6-8355-4922-a44b-e4b159281626 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5a927cb6-8355-4922-a44b-e4b159281626 .
+
+km-dev:PredicateObjectMap_2b1fbf09-be27-47f5-ad74-5e8d43243a1e rr:predicate schema:mentions .
+
+km-dev:RefObjectMap_6c8d59af-7d8d-4f14-bd9f-a54820c8e236 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_6c8d59af-7d8d-4f14-bd9f-a54820c8e236 .
+
+km-dev:PredicateObjectMap_2b1fbf09-be27-47f5-ad74-5e8d43243a1e rr:objectMap km-dev:RefObjectMap_6c8d59af-7d8d-4f14-bd9f-a54820c8e236 .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e rr:predicateObjectMap km-dev:PredicateObjectMap_2b1fbf09-be27-47f5-ad74-5e8d43243a1e .
+
+km-dev:PredicateObjectMap_2b1fbf09-be27-47f5-ad74-5e8d43243a1e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2b1fbf09-be27-47f5-ad74-5e8d43243a1e .
+
+km-dev:PredicateObjectMap_4e6e0c7b-704d-493f-8a02-babaca680eec rr:predicate schema:recordedIn .
+
+km-dev:RefObjectMap_cc0445fe-c1ee-4d0f-8da2-7688d38fb24d a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_cc0445fe-c1ee-4d0f-8da2-7688d38fb24d .
+
+km-dev:PredicateObjectMap_4e6e0c7b-704d-493f-8a02-babaca680eec rr:objectMap km-dev:RefObjectMap_cc0445fe-c1ee-4d0f-8da2-7688d38fb24d .
+
+km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e rr:predicateObjectMap km-dev:PredicateObjectMap_4e6e0c7b-704d-493f-8a02-babaca680eec .
+
+km-dev:PredicateObjectMap_4e6e0c7b-704d-493f-8a02-babaca680eec a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4e6e0c7b-704d-493f-8a02-babaca680eec .
+
+km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec .
+
+km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx4 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx4 .
+
+km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec rr:logicalTable _:node1agtalktcx4 ;
+	rr:subjectMap _:node1agtalktcx5 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx5 .
+
+_:node1agtalktcx5 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Person1" ;
+	rr:class schema:Person ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "schema:Person1" .
+
+km-dev:PredicateObjectMap_feb8cda0-9123-4bda-af52-c018090deabc rr:predicate memex:identifier .
+
+km-dev:RefObjectMap_1d499773-9f2f-4427-8e48-d386b184f201 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_1d499773-9f2f-4427-8e48-d386b184f201 .
+
+km-dev:PredicateObjectMap_feb8cda0-9123-4bda-af52-c018090deabc rr:objectMap km-dev:RefObjectMap_1d499773-9f2f-4427-8e48-d386b184f201 .
+
+km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec rr:predicateObjectMap km-dev:PredicateObjectMap_feb8cda0-9123-4bda-af52-c018090deabc .
+
+km-dev:PredicateObjectMap_feb8cda0-9123-4bda-af52-c018090deabc a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_feb8cda0-9123-4bda-af52-c018090deabc .
+
+km-dev:PredicateObjectMap_a0cba8cd-bce2-4f88-a7f3-0f747df3186d rr:predicate schema:name .
+
+_:node1agtalktcx6 rr:column "[\"status\",\"retweetedStatus\",\"user\",\"name\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap _:node1agtalktcx6 .
+
+km-dev:PredicateObjectMap_a0cba8cd-bce2-4f88-a7f3-0f747df3186d rr:objectMap _:node1agtalktcx6 .
+
+km-dev:TriplesMap_26192e15-0f0c-4a60-9fdb-97d2004ed1ec rr:predicateObjectMap km-dev:PredicateObjectMap_a0cba8cd-bce2-4f88-a7f3-0f747df3186d .
+
+km-dev:PredicateObjectMap_a0cba8cd-bce2-4f88-a7f3-0f747df3186d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a0cba8cd-bce2-4f88-a7f3-0f747df3186d .
+
+km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b .
+
+km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx7 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx7 .
+
+km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b rr:logicalTable _:node1agtalktcx7 ;
+	rr:subjectMap _:node1agtalktcx8 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx8 .
+
+_:node1agtalktcx8 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Thing1" ;
+	rr:class schema:Thing .
+
+_:node1agtalktcx9 rr:template "{[\"knowledgeGraph\",\"entity\",\"entity_uri\"]}" .
+
+_:node1agtalktcx8 rr:class _:node1agtalktcx9 ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "schema:Thing1" .
+
+km-dev:PredicateObjectMap_e663114c-4110-495e-88e5-5e107e030bca rr:predicate schema:name .
+
+_:node1agtalktcx10 rr:column "[\"knowledgeGraph\",\"entity\",\"entity_mention\",\"mention_head\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap _:node1agtalktcx10 .
+
+km-dev:PredicateObjectMap_e663114c-4110-495e-88e5-5e107e030bca rr:objectMap _:node1agtalktcx10 .
+
+km-dev:TriplesMap_b9aa770e-218f-45d8-9a12-806a1684f06b rr:predicateObjectMap km-dev:PredicateObjectMap_e663114c-4110-495e-88e5-5e107e030bca .
+
+km-dev:PredicateObjectMap_e663114c-4110-495e-88e5-5e107e030bca a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e663114c-4110-495e-88e5-5e107e030bca .
+
+km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 .
+
+km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx11 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx11 .
+
+km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 rr:logicalTable _:node1agtalktcx11 ;
+	rr:subjectMap _:node1agtalktcx12 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx12 .
+
+_:node1agtalktcx12 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/SoftwareSystem1" ;
+	rr:class memex:SoftwareSystem ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "memex:SoftwareSystem1" .
+
+km-dev:PredicateObjectMap_535b25b8-f801-4c75-a4a5-ed6a417a72b3 rr:predicate schema:name .
+
+_:node1agtalktcx13 rr:constant "twitter.com" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap _:node1agtalktcx13 .
+
+km-dev:PredicateObjectMap_535b25b8-f801-4c75-a4a5-ed6a417a72b3 rr:objectMap _:node1agtalktcx13 .
+
+km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 rr:predicateObjectMap km-dev:PredicateObjectMap_535b25b8-f801-4c75-a4a5-ed6a417a72b3 .
+
+km-dev:PredicateObjectMap_535b25b8-f801-4c75-a4a5-ed6a417a72b3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_535b25b8-f801-4c75-a4a5-ed6a417a72b3 .
+
+km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f .
+
+km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx14 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx14 .
+
+km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f rr:logicalTable _:node1agtalktcx14 ;
+	rr:subjectMap _:node1agtalktcx15 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx15 .
+
+_:node1agtalktcx15 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Tweet1" ;
+	rr:class memex:Tweet ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "memex:Tweet1" .
+
+km-dev:PredicateObjectMap_1c025355-a571-43ae-a5bc-91cb9ab9c664 rr:predicate schema:mentions .
+
+km-dev:RefObjectMap_a4486d26-7fcb-470e-8ce0-a772c0f1fd91 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_f8ac20b2-23c5-4bc8-8529-4af11536233e ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_a4486d26-7fcb-470e-8ce0-a772c0f1fd91 .
+
+km-dev:PredicateObjectMap_1c025355-a571-43ae-a5bc-91cb9ab9c664 rr:objectMap km-dev:RefObjectMap_a4486d26-7fcb-470e-8ce0-a772c0f1fd91 .
+
+km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f rr:predicateObjectMap km-dev:PredicateObjectMap_1c025355-a571-43ae-a5bc-91cb9ab9c664 .
+
+km-dev:PredicateObjectMap_1c025355-a571-43ae-a5bc-91cb9ab9c664 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1c025355-a571-43ae-a5bc-91cb9ab9c664 .
+
+km-dev:PredicateObjectMap_a7e01d90-ad70-401d-805d-c0c1df39d258 rr:predicate schema:text .
+
+_:node1agtalktcx16 rr:column "[\"status\",\"text\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap _:node1agtalktcx16 .
+
+km-dev:PredicateObjectMap_a7e01d90-ad70-401d-805d-c0c1df39d258 rr:objectMap _:node1agtalktcx16 .
+
+km-dev:TriplesMap_6742bc53-75d1-4371-84b7-d0c0d0a9101f rr:predicateObjectMap km-dev:PredicateObjectMap_a7e01d90-ad70-401d-805d-c0c1df39d258 .
+
+km-dev:PredicateObjectMap_a7e01d90-ad70-401d-805d-c0c1df39d258 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a7e01d90-ad70-401d-805d-c0c1df39d258 .
+
+km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 a rr:TriplesMap .
+
+_:node1agtalktcx1 km-dev:hasTriplesMap km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 .
+
+km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx17 rr:tableName "obj_reformatted.json" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasLogicalTable _:node1agtalktcx17 .
+
+km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 rr:logicalTable _:node1agtalktcx17 ;
+	rr:subjectMap _:node1agtalktcx18 .
+
+_:node1agtalktcx1 km-dev:hasSubjectMap _:node1agtalktcx18 .
+
+_:node1agtalktcx18 km-dev:isPartOfMapping _:node1agtalktcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/UserName1" ;
+	rr:class memex:UserName ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "memex:UserName1" .
+
+km-dev:PredicateObjectMap_88f0664a-82a6-4061-96e3-20e6d022fee0 rr:predicate memex:softwareSystem .
+
+km-dev:RefObjectMap_4de4cb23-d3a4-4ef3-a4b0-b11c0fe6011a a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_80184a6e-b7ab-475a-af35-736fafffd0c9 ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap km-dev:RefObjectMap_4de4cb23-d3a4-4ef3-a4b0-b11c0fe6011a .
+
+km-dev:PredicateObjectMap_88f0664a-82a6-4061-96e3-20e6d022fee0 rr:objectMap km-dev:RefObjectMap_4de4cb23-d3a4-4ef3-a4b0-b11c0fe6011a .
+
+km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 rr:predicateObjectMap km-dev:PredicateObjectMap_88f0664a-82a6-4061-96e3-20e6d022fee0 .
+
+km-dev:PredicateObjectMap_88f0664a-82a6-4061-96e3-20e6d022fee0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_88f0664a-82a6-4061-96e3-20e6d022fee0 .
+
+km-dev:PredicateObjectMap_80ecde06-c9dc-4530-8829-a46e797c24f4 rr:predicate schema:name .
+
+_:node1agtalktcx19 rr:column "[\"status\",\"userMentionEntities\",\"name\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasObjectMap _:node1agtalktcx19 .
+
+km-dev:PredicateObjectMap_80ecde06-c9dc-4530-8829-a46e797c24f4 rr:objectMap _:node1agtalktcx19 .
+
+km-dev:TriplesMap_d34b76b2-4f5c-4a9c-a01e-caf481823dd1 rr:predicateObjectMap km-dev:PredicateObjectMap_80ecde06-c9dc-4530-8829-a46e797c24f4 .
+
+km-dev:PredicateObjectMap_80ecde06-c9dc-4530-8829-a46e797c24f4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1agtalktcx1 .
+
+_:node1agtalktcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_80ecde06-c9dc-4530-8829-a46e797c24f4 .

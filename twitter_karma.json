@@ -1,0 +1,33 @@
+[
+{
+    "recordedIn": {
+        "a": "http://schema.dig.isi.edu/ontology/Tweet",
+        "mentions": "_:memex_Situation1",
+        "text": "RT @gellieyo: OMFG I love Donald trump so much. #DT2016"
+    },
+    "a": "http://schema.dig.isi.edu/ontology/Situation",
+    "mentions": [
+        {
+            "a": "http://schema.org/Person",
+            "name": "I"
+        },
+        {
+            "a": "http://schema.org/Person",
+            "name": "Donald trump"
+        }
+    ],
+    "reporter": {
+        "identifier": {
+            "a": "http://schema.dig.isi.edu/ontology/UserName",
+            "name": "angelica",
+            "softwareSystem": {
+                "a": "http://schema.dig.isi.edu/ontology/SoftwareSystem",
+                "name": "twitter.com"
+            }
+        },
+        "a": "http://schema.org/Person",
+        "name": "angelica"
+    },
+    "@context": "http://ec2-52-27-170-65.us-west-2.compute.amazonaws.com:80/publish/JSON/WSP1WS759-obj_reformatted_json-context.json"
+}
+]
